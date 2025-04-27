@@ -8,8 +8,8 @@ BluetoothSerial SerialBT;
 #define BRIGHTNESS 127
 #define LED_TYPE WS2811
 #define COLOR_ORDER GRB
-#define A 25
-#define B 26
+#define A 26
+#define B 25
 
 CRGB leds[NUM_LEDS * STEPS];
 
@@ -181,7 +181,7 @@ void LEDTask(void *pvParameters) {
   xTimerStop(motionTimer, 0);
 }
 
-  vTaskDelay(1 / portTICK_PERIOD_MS);
+  vTaskDelay(1 / portTICK_PERIOD_MS);  
   }
 }
 
@@ -197,8 +197,8 @@ void setup() {
 
   xTaskCreatePinnedToCore(LEDTask, "LED Task", 10000, NULL, 3, NULL, 0); // priority 3
 
-   attachInterrupt(digitalPinToInterrupt(B), readPIR_A, FALLING);
-
+   attachInterrupt(digitalPinToInterrupt(A), readPIR_A, FALLING);
+//  attachInterrupt(digitalPinToInterrupt(B), readPIR_B, FALLING); 
 }
 
 void loop() {}

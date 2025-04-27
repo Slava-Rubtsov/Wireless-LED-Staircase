@@ -39,7 +39,7 @@ void loop() {
 
   // PIR sensor reading and sending
   if (SerialBT.connected() && digitalRead(PIR_PIN) == HIGH) {
-    SerialBT.write('B'); // or 'B' depending on which PIR
+    SerialBT.write('B'); // or 'A' depending on which PIR
     Serial.println("Sent 'A' to LEDController");
     delay(1000); // debounce and avoid spamming
   }
